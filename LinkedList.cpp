@@ -1,5 +1,4 @@
 // C/C++ program to print reverse of linked list 
-// without extra space and without modifications. 
 #include<stdio.h> 
 #include<stdlib.h> 
 
@@ -45,7 +44,7 @@ int getNth(struct Node* head, int n)
 	return curr->data; 
 } 
 
-void printReverse(Node *head) 
+void printList(Node *head) 
 { 
 	// Count nodes 
 	int n = getCount(head); 
@@ -68,7 +67,7 @@ int main()
 	push(&head, 2); 
 	push(&head, 1); 
 
-	printReverse(head); 
+	printList(head); 
 
 	return 0; 
 } 
