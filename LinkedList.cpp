@@ -9,7 +9,7 @@ struct Node
 	struct Node* next; 
 }; 
 
-/* Given a reference (pointer to pointer) to the head 
+/* Given a reference to the head 
 of a list and an int, push a new node on the front 
 of the list. */
 void push(struct Node** head_ref, int new_data) 
@@ -24,7 +24,7 @@ void push(struct Node** head_ref, int new_data)
 /* Counts no. of nodes in linked list */
 int getCount(struct Node* head) 
 { 
-	int count = 0; // Initialize count 
+	int count = 0; 
 	struct Node* current = head; // Initialize current 
 	while (current != NULL) 
 	{ 
@@ -53,7 +53,6 @@ void printList(Node *head)
 		printf("%d ", getNth(head, i)); 
 } 
 
-/* Drier program to test count function*/
 int main() 
 { 
 	/* Start with the empty list */
