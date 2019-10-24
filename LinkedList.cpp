@@ -26,23 +26,41 @@ void insert(int new_data) {
 void display() { 
    struct Node* ptr;
    ptr = head;
+   cout << endl;
    while (ptr != NULL) { 
       cout<< ptr->data <<" "; 
       ptr = ptr->next; 
    } 
+   cout << endl;
 } 
 
 int main() { 
 	
-	cout << "Enter the number you want to add to the list, enter \"-1\" when you've finished:";
+	int option;
+	
+	do {
+		cout << endl << "---------------Main Menu-------------------" << endl;
+		cout << "1. Create List" << endl;
+		cout << "2. Print List" << endl;
+		cout << "3. Exit" << endl;
+		cin >> option;
 
-/* Loop to let user add nodes to the list */
-	while (new_data != -1) {
-		cin >> new_data;
-		insert(new_data);
-	} 
+		switch (option) {
+		
+			case 1:
+				/* Loop to let user add nodes to the list */
+				while (new_data != -1) {
+					cin >> new_data;
+					insert(new_data);
+				}
+				break;
+		
+			case 2:
+				cout << endl << "All nodes off the Linked List:" << endl;
+				display();
+				break;
+		}
+	} while (option != 3);
 
-   cout << "The linked list is: ";
-   display(); 
    return 0; 
 } 
