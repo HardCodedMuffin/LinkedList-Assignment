@@ -1,4 +1,3 @@
-// C/C++ program to print reverse of linked list 
 #include<stdio.h> 
 #include<stdlib.h> 
 
