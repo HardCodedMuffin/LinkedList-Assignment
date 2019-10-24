@@ -58,7 +58,7 @@ int main()
 	struct Node* head = NULL; 
 
 	/* Use push() to construct below list 
-	1->2->3->4->5 */
+	5->4->3->2->1 */
 	push(&head, 5); 
 	push(&head, 4); 
 	push(&head, 3); 
