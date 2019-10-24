@@ -1,71 +1,48 @@
-#include<stdio.h> 
-#include<stdlib.h> 
+#include <iostream>
+#include <string>
+using namespace std;
+
+int new_data;
 
 /* Link list node */
-struct Node 
-{ 
-	int data; 
-	struct Node* next; 
+struct Node { 
+   int data; 
+   struct Node *next; 
 }; 
 
-/* Given a reference to the head 
-of a list and an int, push a new node on the front 
+/* Start with the empty list */
+struct Node* head = NULL;   
+
+/* Push a new node on the front
 of the list. */
-void push(struct Node** head_ref, int new_data) 
-{ 
-	struct Node* new_node = 
-			(struct Node*) malloc(sizeof(struct Node)); 
-	new_node->data = new_data; 
-	new_node->next = (*head_ref); 
-	(*head_ref) = new_node; 
+void insert(int new_data) { 
+   struct Node* new_node = (struct Node*) malloc(sizeof(struct Node)); 
+   new_node->data = new_data; 
+   new_node->next = head; 
+   head = new_node; 
 } 
 
-/* Counts no. of nodes in linked list */
-int getCount(struct Node* head) 
-{ 
-	int count = 0; 
-	struct Node* current = head; // Initialize current 
-	while (current != NULL) 
-	{ 
-		count++; 
-		current = current->next; 
+/* Loop that prints out each node */
+void display() { 
+   struct Node* ptr;
+   ptr = head;
+   while (ptr != NULL) { 
+      cout<< ptr->data <<" "; 
+      ptr = ptr->next; 
+   } 
+} 
+
+int main() { 
+	
+	cout << "Enter the number you want to add to the list, enter \"-1\" when you've finished:";
+
+/* Loop to let user add nodes to the list */
+	while (new_data != -1) {
+		cin >> new_data;
+		insert(new_data);
 	} 
-	return count; 
-} 
 
-/* Takes head pointer of the linked list and index 
-	as arguments and return data at index*/
-int getNth(struct Node* head, int n) 
-{ 
-	struct Node* curr = head; 
-	for (int i=0; i<n-1 && curr != NULL; i++) 
-	curr = curr->next; 
-	return curr->data; 
-} 
-
-void printList(Node *head) 
-{ 
-	// Count nodes 
-	int n = getCount(head); 
-
-	for (int i=n; i>=1; i--) 
-		printf("%d ", getNth(head, i)); 
-} 
-
-int main() 
-{ 
-	/* Start with the empty list */
-	struct Node* head = NULL; 
-
-	/* Use push() to construct below list 
-	5->4->3->2->1 */
-	push(&head, 5); 
-	push(&head, 4); 
-	push(&head, 3); 
-	push(&head, 2); 
-	push(&head, 1); 
-
-	printList(head); 
-
-	return 0; 
+   cout << "The linked list is: ";
+   display(); 
+   return 0; 
 } 
