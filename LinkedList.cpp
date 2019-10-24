@@ -74,7 +74,6 @@ int main() {
 				cin >> new_data;
 				insert(new_data);
 			}
-			getCount(head);
 			break;
 		case 2:
 			cout << endl << "All nodes off the Linked List:" << endl;
